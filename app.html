@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./assets/img/logo-site.png">
+    <title>Namora comigo?</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap">
+    <link rel="stylesheet" href="./assets/css/app.css" />
+    <script src="./assets/js/app.js" defer></script>
+    <style>
+      .text-container {
+        font-family: 'Pinyon Script', cursive;
+        color: white;
+        text-shadow: 2px 2px 4px red; /* Adiciona sombreamento vermelho */
+        padding: 10px;
+        font-size: 2em; /* Dobre o tamanho da fonte */
+        position: absolute;
+        top: 20%; /* Ajuste conforme necessário */
+        left: 10%; /* Ajuste conforme necessário */
+        white-space: pre-line; /* Para manter as quebras de linha */
+        width: 80%; /* Ajuste a largura conforme necessário */
+      }
+      .background-1, .background-2 {
+        position: relative;
+      }
+      .background-2 .text-then {
+        font-family: 'Pinyon Script', cursive;
+        color: white;
+        text-shadow: 2px 2px 4px red; /* Adiciona sombreamento vermelho */
+        padding: 10px;
+        font-size: 2em; /* Dobre o tamanho da fonte */
+        position: absolute;
+        top: 50%; /* Ajuste conforme necessário */
+        left: 50%; /* Ajuste conforme necessário */
+        transform: translate(-50%, -50%); /* Centraliza o texto */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="background-1">
+      <div id="text-container" class="text-container"></div> <!-- Mova para a primeira imagem -->
+    </div>
+    <div class="background-2">
+    </div>
+    <div class="background-3">
+      <div class="cta">
+        <button class="btn" id="yes">
+          <span class="btn-text-one">Sim</span>
+          <span class="btn-text-two">🫶💕</span>
+        </button>
+        <button class="btn no">
+          <span class="btn-text-one">Não</span>
+          <span class="btn-text-two">😅</span>
+        </button>
+      </div>
+    </div>
+    <audio id="audio" src="./assets/audio/Dancing With Our Hands Tied - Taylor Swift.mp3" autoplay></audio>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const audio = document.getElementById('audio');
+        document.body.addEventListener('click', function playAudio() {
+          audio.play();
+          document.body.removeEventListener('click', playAudio);
+        });
+
+        const text = "Você foi a surpresa mais linda que já me aconteceu, você é o que quero, você é meu presente, e meu futuro, você é minha certeza. Tudo tá acontecendo rápido e intenso, assim como nós somos, e por isso combinamos tanto, eu quero tudo que o amor pode dar, das breguices até as coisas fúteis, quero o amor tranquilo que você me dá, quero construir meus sonhos com você, para que possamos sonhar juntas. aqui é só o começo de tudo que quero e teremos, de tudo que nós somos e seremos. quero te escrever poemas, quero te mimar, te cuidar, quero ser o motivo da tua felicidade assim como tu é da minha, até o fim dessa vida.";
+        const textContainer = document.getElementById('text-container');
+        let index = 0;
+
+        function typeText() {
+          if (index < text.length) {
+            textContainer.innerHTML += text.charAt(index);
+            index++;
+            setTimeout(typeText, 50); // Ajuste o valor para a velocidade de digitação desejada
+          }
+        }
+
+        typeText();
+      });
+    </script>
+  </body>
+</html>
